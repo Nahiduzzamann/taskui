@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaAlignRight, FaSearch } from "react-icons/fa";
-import { FaBagShopping, FaXmark } from "react-icons/fa6";
+import { FaXmark } from "react-icons/fa6";
 import logo from "../../public/Images/logo.jpg";
+import logo1 from "../../public/Images/logo1.png";
 import { BsArrowDown } from "react-icons/bs";
 import { motion } from "framer-motion";
 import Sidebar from "./Sidebar";
+import { FiShoppingCart } from "react-icons/fi";
 const links = [
   { name: "HOME", href: "/" },
   {
@@ -21,7 +23,6 @@ const links = [
 ];
 
 const Header = () => {
-  // const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -99,13 +100,21 @@ const Header = () => {
         }
         className="bg-white shadow-md"
       >
-        <div className="container mx-auto flex justify-between items-center px-3 h-[70px]">
-          <Link href="/">
+        <div className="container mx-auto flex justify-between items-center px-3 md:h-[70px] h-[50px]">
+          <Link className="hidden md:block" href="/">
             <Image
               src={logo}
               alt="Logo"
               width={55}
               height={55}
+              className="cursor-pointer"
+            />
+          </Link>
+          <Link className="md:hidden" href="/">
+            <Image
+              src={logo1}
+              alt="Logo"
+             
               className="cursor-pointer"
             />
           </Link>
@@ -148,7 +157,7 @@ const Header = () => {
                 </div>
               </Link>
               <Link href="/" className="relative">
-                <FaBagShopping className="text-2xl text-gray-700 w-6 h-6" />
+                <FiShoppingCart className="text-2xl text-gray-700 w-6 h-6" />
                 <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full px-1">
                   0
                 </span>
@@ -173,10 +182,8 @@ const Header = () => {
         </div>
       </motion.div>
 
-      <div className=" absolute h-screen top-0 ">
         {/* drawer */}
         <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      </div>
     </div>
   );
 };

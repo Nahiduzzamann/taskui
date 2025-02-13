@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   const [isMounted, setIsMounted] = useState(false);
-//error handlec
+//error handle
   useEffect(() => {
     setIsMounted(true);
   }, []);

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiShoppingCart, FiGrid } from "react-icons/fi";
 import Image from "next/image";
-import logo from "../../public/Images/logo.jpg";
+import logo1 from "../../public/Images/logo1.png";
 import { FaXmark } from "react-icons/fa6";
 
 type SidebarProps = {
@@ -21,16 +21,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? 0 : "-100%" }}
         transition={{ type: "spring", stiffness: 80, damping: 15 }}
-        className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-40 p-5 flex flex-col space-y-6 md:hidden"
+        className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-40 pl-5 py-5 px-2 flex flex-col space-y-6 md:hidden"
       >
-        <div className="flex justify-between items-center">
-          <Link href="/">
+        <div className="flex gap-6 justify-between items-center">
+        <Link href="/">
             <Image
-            onClick={toggleSidebar}
-              src={logo}
+              src={logo1}
               alt="Logo"
-              width={45}
-              height={45}
+             
               className="cursor-pointer"
             />
           </Link>
