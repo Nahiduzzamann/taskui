@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaAlignRight, FaSearch } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
-import logo from "../../public/Images/logo.jpg";
+import logo from "../../public/Images/logo.png";
 import logo1 from "../../public/Images/logo1.png";
 import { BsArrowDown } from "react-icons/bs";
 import { motion } from "framer-motion";
@@ -51,7 +51,7 @@ const Header = () => {
     };
   }, [lastScrollY]);
   return (
-    <div className=" w-full fixed top-0  transition-transform duration-300">
+    <div className="z-50 w-full fixed top-0  transition-transform duration-300">
       {/* Top Bar */}
       <motion.div
         animate={{ y: show ? 0 : -60 }} // Hide to top
@@ -98,7 +98,7 @@ const Header = () => {
             ? { type: "spring", stiffness: 100, damping: 30 }
             : { type: "spring", stiffness: 80 }
         }
-        className="bg-white shadow-md"
+        className="bg-white"
       >
         <div className="container mx-auto flex justify-between items-center px-3 md:h-[70px] h-[50px]">
           <Link className="hidden md:block" href="/">
