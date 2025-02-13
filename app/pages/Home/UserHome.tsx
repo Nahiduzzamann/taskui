@@ -2,10 +2,8 @@ import React from "react";
 
 export default function UserHome() {
   return (
-    <div className="">
-      <p>home1</p>
-      <p>home2</p>
-      <p>home3</p>
+    <div className="pt-40 bg-blue-300">
+      <div></div>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaAlignRight, FaArrowDown, FaSearch } from "react-icons/fa";
-import { FaBagShopping } from "react-icons/fa6";
+import { FaAlignRight, FaSearch } from "react-icons/fa";
+import { FaBagShopping, FaXmark } from "react-icons/fa6";
 import logo from "../../public/Images/logo.jpg";
 import {
   DrawerActionTrigger,
@@ -18,13 +18,14 @@ import {
   Button,
   DrawerTitle,
 } from "@chakra-ui/react";
-
+import { BsArrowDown } from "react-icons/bs";
+import { motion } from "framer-motion";
 const links = [
   { name: "HOME", href: "/" },
   {
     name: "COURSES",
     href: "/courses",
-    dropdown: ["Course 1", "Course 2", "Course 3"],
+    dropdown: ["Course 1", "Course 22222222", "Course 3"],
   },
   { name: "BUNDLE COURSES", href: "/bundle-courses" },
   { name: "SUMMIT", href: "/summit", dropdown: ["Event 1", "Event 2"] },
@@ -33,11 +34,42 @@ const links = [
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY + 10) {
+        // Scrolling down
+        setShow(false);
+      } else if (currentScrollY < lastScrollY - 10) {
+        // Scrolling up
+        setShow(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
   return (
-    <div className="absolute w-full">
+    <div className=" w-full fixed top-0  transition-transform duration-300">
       {/* Top Bar */}
-      <div className="bg-[#0d2d49]">
-        <div className="container mx-auto flex justify-between items-center p-2 px-5">
+      <motion.div
+        animate={{ y: show ? 0 : -60 }} // Hide to top
+        transition={
+          show
+            ? { type: "spring", stiffness: 100, damping: 30 }
+            : { type: "spring", stiffness: 30 }
+        }
+        className="bg-[#0d2d49]"
+      >
+        <div className="container mx-auto flex justify-between items-center px-5 h-[60px]">
           <Link href="/">
             <Image
               src={logo}
@@ -47,13 +79,13 @@ const Header = () => {
               className="cursor-pointer"
             />
           </Link>
-          <div className="relative border border-white mx-2">
+          <div className="relative border border-white mx-2 h-9">
             <input
               type="text"
               placeholder="What do you want to learn today?"
-              className="h-8 pl-2 pr-9 lg:w-96 w-full text-gray-700 outline-none"
+              className="h-full pl-2 pr-10 lg:w-96 w-full text-gray-700 outline-none"
             />
-            <button className="absolute right-0 top-0 bg-[#0d2d49] h-full w-7 flex justify-center items-center hover:bg-[#1e4364] transition-colors duration-300">
+            <button className="absolute right-0 top-0 bg-[#0d2d49] h-full w-8 flex justify-center items-center hover:bg-[#1e4364] transition-colors duration-300">
               <FaSearch className=" text-white" />
             </button>
           </div>
@@ -63,17 +95,25 @@ const Header = () => {
             </button>
           </Link>
         </div>
-      </div>
+      </motion.div>
 
       {/* Bottom Navigation */}
-      <nav className="bg-white shadow-md">
-        <div className="container mx-auto flex justify-between items-center px-3 py-2 md:p-3">
+      <motion.div
+        animate={{ y: show ? 0 : -60 }} // Hide to top
+        transition={
+          show
+            ? { type: "spring", stiffness: 100, damping: 30 }
+            : { type: "spring", stiffness: 80 }
+        }
+        className="bg-white shadow-md"
+      >
+        <div className="container mx-auto flex justify-between items-center px-3 h-[70px]">
           <Link href="/">
             <Image
               src={logo}
               alt="Logo"
-              width={65}
-              height={65}
+              width={55}
+              height={55}
               className="cursor-pointer"
             />
           </Link>
@@ -83,17 +123,17 @@ const Header = () => {
                 <li key={link.name} className="relative group">
                   <Link
                     href={link.href}
-                    className="text-black hover:text-blue-600"
+                    className="text-black font-semibold hover:text-blue-500"
                   >
                     {link.name}
                     {link.dropdown && (
-                      <FaArrowDown className="inline w-4 h-4 ml-1" />
+                      <BsArrowDown className="inline w-4 h-3 mr-1" />
                     )}
                   </Link>
                   {link.dropdown && (
-                    <ul className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md">
+                    <ul className="absolute -left-8 hidden group-hover:block bg-white shadow-lg rounded-md pt-4 ">
                       {link.dropdown.map((item) => (
-                        <li key={item}>
+                        <li className="w-36 hover:underline" key={item}>
                           <Link
                             href={`${link.href}/${item
                               .toLowerCase()
@@ -123,45 +163,54 @@ const Header = () => {
               </Link>
             </div>
           </div>
-          <div className="md:hidden">
-            <FaAlignRight
-              onClick={() => setOpen(!open)}
-              className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer"
-            />
-          </div>
+          {open ? (
+            <div className="md:hidden">
+              <FaXmark
+                onClick={() => setOpen(!open)}
+                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer font-thin"
+              />
+            </div>
+          ) : (
+            <div className="md:hidden">
+              <FaAlignRight
+                onClick={() => setOpen(!open)}
+                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer"
+              />
+            </div>
+          )}
         </div>
-      </nav>
-      <div className=" absolute h-full top-0">
-        {/* drawer */}
-      <DrawerRoot
-      
-        placement="start"
-        open={open}
-        onOpenChange={(e) => setOpen(e.open)}
-      >
-        <DrawerBackdrop />
+      </motion.div>
 
-        <DrawerContent height='full'>
-          <DrawerHeader>
-            <DrawerTitle>Drawer Title</DrawerTitle>
-          </DrawerHeader>
-          <DrawerBody>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </DrawerBody>
-          <DrawerFooter>
-            <DrawerActionTrigger asChild>
-              <Button onClick={() => setOpen(!open)} variant="outline">
-                Cancel
-              </Button>
-            </DrawerActionTrigger>
-            <Button>Save</Button>
-          </DrawerFooter>
-          <DrawerCloseTrigger />
-        </DrawerContent>
-      </DrawerRoot>
+      <div className=" absolute h-screen top-0 ">
+        {/* drawer */}
+        <DrawerRoot
+          placement="start"
+          open={open}
+          onOpenChange={(e) => setOpen(e.open)}
+        >
+          <DrawerBackdrop />
+
+          <DrawerContent height="full">
+            <DrawerHeader>
+              <DrawerTitle>Drawer Title</DrawerTitle>
+            </DrawerHeader>
+            <DrawerBody>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </DrawerBody>
+            <DrawerFooter>
+              <DrawerActionTrigger asChild>
+                <Button onClick={() => setOpen(!open)} variant="outline">
+                  Cancel
+                </Button>
+              </DrawerActionTrigger>
+              <Button>Save</Button>
+            </DrawerFooter>
+            <DrawerCloseTrigger />
+          </DrawerContent>
+        </DrawerRoot>
       </div>
     </div>
   );

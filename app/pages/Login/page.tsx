@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Login() {
   return (
-    <div>Login</div>
+    <div className='w-screen h-screen flex justify-center items-center'>Login</div>
   )
 }
