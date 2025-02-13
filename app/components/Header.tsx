@@ -10,6 +10,7 @@ import { BsArrowDown } from "react-icons/bs";
 import { motion } from "framer-motion";
 import Sidebar from "./Sidebar";
 import { FiShoppingCart } from "react-icons/fi";
+import { useCardContext } from "../providers/CardContextProvider";
 const links = [
   { name: "HOME", href: "/" },
   {
@@ -23,6 +24,7 @@ const links = [
 ];
 
 const Header = () => {
+  const { cart } = useCardContext();
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -159,7 +161,7 @@ const Header = () => {
               <Link href="/" className="relative">
                 <FiShoppingCart className="text-2xl text-gray-700 w-6 h-6" />
                 <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full px-1">
-                  0
+                  {cart?.length > 0 ?cart?.length:'0'}
                 </span>
               </Link>
             </div>

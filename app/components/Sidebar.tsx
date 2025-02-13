@@ -7,6 +7,7 @@ import { FiShoppingCart, FiGrid } from "react-icons/fi";
 import Image from "next/image";
 import logo1 from "../../public/Images/logo1.png";
 import { FaXmark } from "react-icons/fa6";
+import { useCardContext } from "../providers/CardContextProvider";
 
 type SidebarProps = {
   isOpen: boolean;
@@ -14,6 +15,7 @@ type SidebarProps = {
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
+  const { cart } = useCardContext();
   return (
     <>
       {/* Sidebar */}
@@ -24,13 +26,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-40 pl-5 py-5 px-2 flex flex-col space-y-6 md:hidden"
       >
         <div className="flex gap-6 justify-between items-center">
-        <Link href="/">
-            <Image
-              src={logo1}
-              alt="Logo"
-             
-              className="cursor-pointer"
-            />
+          <Link href="/">
+            <Image src={logo1} alt="Logo" className="cursor-pointer" />
           </Link>
           <div className="">
             <FaXmark
@@ -94,7 +91,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           >
             <div className="flex items-center gap-2">
               <FiShoppingCart /> Cart{" "}
-              <span className="text-sm text-gray-500">(0)</span>
+              <span className="text-sm text-gray-500">
+                {cart?.length > 0 ? cart?.length : "0"}
+              </span>
             </div>
           </Link>
         </nav>
