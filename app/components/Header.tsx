@@ -1,25 +1,13 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaAlignRight, FaSearch } from "react-icons/fa";
 import { FaBagShopping, FaXmark } from "react-icons/fa6";
 import logo from "../../public/Images/logo.jpg";
-import {
-  DrawerActionTrigger,
-  DrawerBackdrop,
-  DrawerBody,
-  DrawerCloseTrigger,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerRoot,
-  Button,
-  DrawerTitle,
-} from "@chakra-ui/react";
 import { BsArrowDown } from "react-icons/bs";
 import { motion } from "framer-motion";
+import Sidebar from "./Sidebar";
 const links = [
   { name: "HOME", href: "/" },
   {
@@ -33,10 +21,14 @@ const links = [
 ];
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -163,17 +155,17 @@ const Header = () => {
               </Link>
             </div>
           </div>
-          {open ? (
+          {isOpen ? (
             <div className="md:hidden">
               <FaXmark
-                onClick={() => setOpen(!open)}
-                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer font-thin"
+                onClick={toggleSidebar}
+                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer"
               />
             </div>
           ) : (
             <div className="md:hidden">
               <FaAlignRight
-                onClick={() => setOpen(!open)}
+                onClick={toggleSidebar}
                 className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer"
               />
             </div>
@@ -183,34 +175,7 @@ const Header = () => {
 
       <div className=" absolute h-screen top-0 ">
         {/* drawer */}
-        <DrawerRoot
-          placement="start"
-          open={open}
-          onOpenChange={(e) => setOpen(e.open)}
-        >
-          <DrawerBackdrop />
-
-          <DrawerContent height="full">
-            <DrawerHeader>
-              <DrawerTitle>Drawer Title</DrawerTitle>
-            </DrawerHeader>
-            <DrawerBody>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-            </DrawerBody>
-            <DrawerFooter>
-              <DrawerActionTrigger asChild>
-                <Button onClick={() => setOpen(!open)} variant="outline">
-                  Cancel
-                </Button>
-              </DrawerActionTrigger>
-              <Button>Save</Button>
-            </DrawerFooter>
-            <DrawerCloseTrigger />
-          </DrawerContent>
-        </DrawerRoot>
+        <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
       </div>
     </div>
   );
