@@ -34,10 +34,10 @@ const Header = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY + 10) {
+      if (currentScrollY > lastScrollY + 15) {
         // Scrolling down
         setShow(false);
-      } else if (currentScrollY < lastScrollY - 10) {
+      } else if (currentScrollY < lastScrollY - 15) {
         // Scrolling up
         setShow(true);
       }
@@ -95,7 +95,7 @@ const Header = () => {
         animate={{ y: show ? 0 : -60 }} // Hide to top
         transition={
           show
-            ? { type: "spring", stiffness: 100, damping: 30 }
+            ? { type: "spring", stiffness: 50, damping: 20 }
             : { type: "spring", stiffness: 80 }
         }
         className="bg-white"

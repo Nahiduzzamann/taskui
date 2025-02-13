@@ -6,10 +6,10 @@ const Banner = () => {
       <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-3">
         {/* Text Content */}
         <div className="md:w-1/2 mt-8 md:mt-0 flex flex-col justify-between md:h-[350px] ">
-          <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-[#151E4D] leading-tight text-center mb-4 md:my-0">
+          <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-[#171339FA] leading-tight text-center mb-4 md:my-0">
             Empowering You for a Thriving Future
           </h1>
-          <p className="mt-4 text-lg text-[#151E4D] font-serif text-justify">
+          <p className="mt-4 text-lg text-[#757575] font-serif text-justify">
             At ThrivingSkill, we’re not just another eLearning platform; we’re
             your trusted companion on your journey to personal and professional
             growth. We believe that everyone has the potential to thrive, and
