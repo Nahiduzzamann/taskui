@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   const [isMounted, setIsMounted] = useState(false);
-
+//error handlec
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -18,7 +18,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <ChakraProvider value={defaultSystem}>
       <ThemeProvider attribute="class" disableTransitionOnChange>
         <Header></Header>
-        <div>{props.children}</div>
+        <div className="">{props.children}</div>
         <Footer></Footer>
       </ThemeProvider>
     </ChakraProvider>

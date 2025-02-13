@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -34,7 +34,7 @@ const links = [
 const Header = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div>
+    <div className="absolute w-full">
       {/* Top Bar */}
       <div className="bg-[#0d2d49]">
         <div className="container mx-auto flex justify-between items-center p-2 px-5">
@@ -129,33 +129,40 @@ const Header = () => {
               className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer"
             />
           </div>
-          {/* drawer */}
-          <DrawerRoot open={open} onOpenChange={(e) => setOpen(e.open)}>
-            <DrawerBackdrop />
-
-            <DrawerContent>
-              <DrawerHeader>
-                <DrawerTitle>Drawer Title</DrawerTitle>
-              </DrawerHeader>
-              <DrawerBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </DrawerBody>
-              <DrawerFooter>
-                <DrawerActionTrigger asChild>
-                  <Button onClick={() => setOpen(!open)} variant="outline">
-                    Cancel
-                  </Button>
-                </DrawerActionTrigger>
-                <Button>Save</Button>
-              </DrawerFooter>
-              <DrawerCloseTrigger />
-            </DrawerContent>
-          </DrawerRoot>
         </div>
       </nav>
+      <div className=" absolute h-full top-0">
+        {/* drawer */}
+      <DrawerRoot
+      
+        placement="start"
+        open={open}
+        onOpenChange={(e) => setOpen(e.open)}
+      >
+        <DrawerBackdrop />
+
+        <DrawerContent height='full'>
+          <DrawerHeader>
+            <DrawerTitle>Drawer Title</DrawerTitle>
+          </DrawerHeader>
+          <DrawerBody>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </DrawerBody>
+          <DrawerFooter>
+            <DrawerActionTrigger asChild>
+              <Button onClick={() => setOpen(!open)} variant="outline">
+                Cancel
+              </Button>
+            </DrawerActionTrigger>
+            <Button>Save</Button>
+          </DrawerFooter>
+          <DrawerCloseTrigger />
+        </DrawerContent>
+      </DrawerRoot>
+      </div>
     </div>
   );
 };
