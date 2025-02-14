@@ -23,7 +23,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? 0 : "-100%" }}
         transition={{ type: "spring", stiffness: 80, damping: 15 }}
-        className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-40 pl-5 py-5 px-2 flex flex-col space-y-6 md:hidden"
+        className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 pl-5 py-5 px-2 flex flex-col space-y-6 md:hidden"
       >
         <div className="flex gap-6 justify-between items-center">
           <Link href="/">

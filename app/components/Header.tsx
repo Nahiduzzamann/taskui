@@ -6,11 +6,11 @@ import { FaAlignRight, FaSearch } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import logo from "../../public/Images/logo.png";
 import logo1 from "../../public/Images/logo1.png";
-import { BsArrowDown } from "react-icons/bs";
 import { motion } from "framer-motion";
 import Sidebar from "./Sidebar";
 import { FiShoppingCart } from "react-icons/fi";
 import { useCardContext } from "../providers/CardContextProvider";
+import { IoIosArrowDown } from "react-icons/io";
 const links = [
   { name: "HOME", href: "/" },
   {
@@ -26,6 +26,7 @@ const links = [
 const Header = () => {
   const { cart } = useCardContext();
   const [show, setShow] = useState(true);
+  const [showShadow, setShowShadow] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,6 +37,11 @@ const Header = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
+      if (currentScrollY > 80) {
+        setShowShadow(true);
+      } else {
+        setShowShadow(false);
+      }
       if (currentScrollY > lastScrollY + 15) {
         // Scrolling down
         setShow(false);
@@ -53,7 +59,7 @@ const Header = () => {
     };
   }, [lastScrollY]);
   return (
-    <div className="z-50 w-full fixed top-0  transition-transform duration-300">
+    <div className="">
       {/* Top Bar */}
       <motion.div
         animate={{ y: show ? 0 : -60 }} // Hide to top
@@ -62,7 +68,7 @@ const Header = () => {
             ? { type: "spring", stiffness: 100, damping: 30 }
             : { type: "spring", stiffness: 30 }
         }
-        className="bg-[#0d2d49]"
+        className="bg-[#0d2d49] z-50 w-full fixed top-0 "
       >
         <div className="container mx-auto flex justify-between items-center px-5 h-[60px]">
           <Link href="/">
@@ -97,10 +103,12 @@ const Header = () => {
         animate={{ y: show ? 0 : -60 }} // Hide to top
         transition={
           show
-            ? { type: "spring", stiffness: 50, damping: 20 }
-            : { type: "spring", stiffness: 80 }
+            ? { type: "spring", stiffness: 20 }
+            : { type: "spring", stiffness: 70 }
         }
-        className="bg-white"
+        className={` bg-white z-50 w-full fixed top-[60px] ${
+          showShadow && "shadow-md"
+        }`}
       >
         <div className="container mx-auto flex justify-between items-center px-3 md:h-[70px] h-[50px]">
           <Link className="hidden md:block" href="/">
@@ -113,12 +121,7 @@ const Header = () => {
             />
           </Link>
           <Link className="md:hidden" href="/">
-            <Image
-              src={logo1}
-              alt="Logo"
-             
-              className="cursor-pointer"
-            />
+            <Image src={logo1} alt="Logo" className="cursor-pointer" />
           </Link>
           <div className="flex gap-4">
             <ul className="lg:flex space-x-6 items-center hidden">
@@ -130,7 +133,7 @@ const Header = () => {
                   >
                     {link.name}
                     {link.dropdown && (
-                      <BsArrowDown className="inline w-4 h-3 mr-1" />
+                      <IoIosArrowDown className="inline w-4 h-4 mr-1" />
                     )}
                   </Link>
                   {link.dropdown && (
@@ -161,7 +164,7 @@ const Header = () => {
               <Link href="/" className="relative">
                 <FiShoppingCart className="text-2xl text-gray-700 w-6 h-6" />
                 <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full px-1">
-                  {cart?.length > 0 ?cart?.length:'0'}
+                  {cart?.length > 0 ? cart?.length : "0"}
                 </span>
               </Link>
             </div>
@@ -184,8 +187,8 @@ const Header = () => {
         </div>
       </motion.div>
 
-        {/* drawer */}
-        <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+      {/* drawer */}
+      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
     </div>
   );
 };
