@@ -25,7 +25,8 @@ const CompanySlider = () => {
       <h2 className="text-center text-2xl font-bold mb-4">
         We Collaborate With Many Leading Companies
       </h2>
-      <div className="container relative mx-auto bg-white px-10 py-6 rounded-lg">
+      <div className="container mx-auto  py-6 ">
+      <div className="relative px-10 bg-white mx-3 py-6 rounded-md">
         {/* Left Arrow */}
         <button
           onClick={() => swiperRef.current?.slidePrev()}
@@ -72,22 +73,9 @@ const CompanySlider = () => {
           <IoIosArrowForward className="h-8 w-8" />
         </button>
       </div>
+      </div>
       {/* Additional CSS for Centering */}
-      <style jsx>{`
-        @media (max-width: 640px) {
-          .swiper-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-          .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-          }
-        }
-      `}</style>
+     
     </div>
   );
 };

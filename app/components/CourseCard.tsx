@@ -25,7 +25,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
             alt={card.title}
             layout="fill"
             objectFit="cover"
-            className="transition-all duration-300 border-8 border-black"
+            className="transition-all duration-300 border-[6px] border-black"
           />
           {hover && (
             <div
@@ -40,15 +40,23 @@ const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
           {card.title}
         </h3>
       </div>
-      <div className="m-2 gap-2 flex justify-end items-center">
-        <p className="text-[#999999] font-semibold font-sans text-lg lg:text-xl  line-through">
-         <span className="">৳</span>{card.newPrice}
-        </p>
-        {card.oldPrice && (
-          <p className="text-red-600 font-semibold font-sans text-xl lg:text-2xl ">
-          ৳{card.oldPrice}
+      <div className="my-3 mx-4">
+        <div className=" flex">
+          <div className="h-[2px] bg-gray-300 w-full"></div>
+          <div className="h-[2px] bg-[#0A2C4C] w-24"></div>
+          <div className="h-[2px] bg-gray-300 w-full"></div>
+        </div>
+        <div className="my-2 gap-2 flex justify-end items-center">
+          <p className="text-[#999999] font-semibold font-sans text-lg lg:text-xl  line-through">
+            <span className="">৳</span>
+            {card.newPrice}
           </p>
-        )}
+          {card.oldPrice && (
+            <p className="text-red-600 font-semibold font-sans text-xl lg:text-2xl ">
+              ৳{card.oldPrice}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
