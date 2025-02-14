@@ -1,6 +1,7 @@
 import Banner from "@/app/components/Banner";
 import CompanySlider from "@/app/components/CompanySlider";
 import ExploreCourses from "@/app/components/ExploreCourses";
+import ScrollToTop from "@/app/components/ScrollToTop";
 import CourseShowContainer from "@/app/components/TrainingContainer";
 import { dummyData } from "@/app/data/dummyData";
 import React from "react";
@@ -38,6 +39,7 @@ export default function UserHome() {
         <div className="flex flex-col items-center justify-center bg-[#eee]">
           <CompanySlider />
         </div>
+        <ScrollToTop />
       </div>
     </div>
   );
