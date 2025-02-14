@@ -47,15 +47,15 @@ const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
           <div className="h-[2px] bg-gray-300 w-full"></div>
         </div>
         <div className="my-2 gap-2 flex justify-end items-center">
-          <p className="text-[#999999] font-semibold font-sans text-lg lg:text-xl  line-through">
-            <span className="">৳</span>
-            {card.newPrice}
-          </p>
           {card.oldPrice && (
-            <p className="text-red-600 font-semibold font-sans text-xl lg:text-2xl ">
+            <p className="text-[#999999] font-semibold font-sans text-lg lg:text-xl line-through">
               ৳{card.oldPrice}
             </p>
           )}
+          <p className="text-red-600 font-semibold font-sans text-xl lg:text-2xl  ">
+            <span className="">৳</span>
+            {card.newPrice}
+          </p>
         </div>
       </div>
     </div>

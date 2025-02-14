@@ -2,12 +2,13 @@
 
 import React from "react";
 import CourseCard from "./CourseCard";
-import { CardData } from "../types";
+import {  Upccoming } from "../types";
+import UpcomingCourseCard from "./UpcomingCourseCard";
 
 interface CourseShowContainerProps {
   title: string;
   backgroundColor?: string;
-  cards: CardData[];
+  cards: Upccoming;
   cardToShow: number;
 }
 
@@ -24,11 +25,16 @@ const CourseShowContainer: React.FC<CourseShowContainerProps> = ({
           {title}
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4  py-6 md:py-8">
-          {cards?.slice(0, cardToShow)?.map((card, index) => (
-            <CourseCard key={index} card={card} />
-          ))}
+          {
+            cards.upcomingCourse ? cards?.data?.map((card, index) => (
+              <UpcomingCourseCard key={index} card={card} />
+            )) : cards?.data?.map((card, index) => (
+              <CourseCard key={index} card={card} />
+            ))
+          }
+          
         </div>
-        {cardToShow > cards?.length ? (
+        {cardToShow > cards?.data?.length? (
           <div></div>
         ) : (
           <div className="flex justify-end mt-6">

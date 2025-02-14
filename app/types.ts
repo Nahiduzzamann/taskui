@@ -5,3 +5,9 @@ export type CardData = {
   newPrice: string;
   image: string;
 };
+
+export type Upccoming = {
+  title: string;
+  upcomingCourse: boolean;
+  data: CardData[]
+};
