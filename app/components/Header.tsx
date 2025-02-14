@@ -84,14 +84,14 @@ const Header = () => {
             <input
               type="text"
               placeholder="What do you want to learn today?"
-              className="h-full pl-2 pr-10 lg:w-96 w-full text-gray-700 outline-none"
+              className="h-full bg-white pl-2 pr-10 lg:w-96 w-full text-gray-700 outline-none"
             />
             <button className="absolute right-0 top-0 bg-[#0d2d49] h-full w-8 flex justify-center items-center hover:bg-[#1e4364] transition-colors duration-300">
               <FaSearch className=" text-white" />
             </button>
           </div>
           <Link href="/pages/Login">
-            <button className="bg-white text-primary px-4 py-1 rounded-full hover:bg-gray-200  transition-colors duration-300 font-semibold hover:underline">
+            <button className="bg-white text-black px-4 py-1 rounded-full hover:bg-gray-200  transition-colors duration-300 font-semibold hover:underline">
               Login
             </button>
           </Link>
@@ -129,7 +129,7 @@ const Header = () => {
                 <li key={link.name} className="relative group">
                   <Link
                     href={link.href}
-                    className="text-black font-semibold hover:text-blue-500"
+                    className="text-[#333333] font-semibold hover:text-blue-500"
                   >
                     {link.name}
                     {link.dropdown && (
@@ -144,7 +144,7 @@ const Header = () => {
                             href={`${link.href}/${item
                               .toLowerCase()
                               .replace(" ", "-")}`}
-                            className="block px-4 py-2 hover:bg-gray-100"
+                            className="block px-4 py-2 hover:bg-gray-100 text-[#333333]"
                           >
                             {item}
                           </Link>
@@ -173,14 +173,14 @@ const Header = () => {
             <div className="md:hidden">
               <FaXmark
                 onClick={toggleSidebar}
-                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer"
+                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-[#333333]"
               />
             </div>
           ) : (
             <div className="md:hidden">
               <FaAlignRight
                 onClick={toggleSidebar}
-                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer"
+                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-[#333333]"
               />
             </div>
           )}

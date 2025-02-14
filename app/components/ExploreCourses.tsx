@@ -21,7 +21,7 @@ const ExploreCourses = () => {
         {courses.map((course, index) => (
           <button
             key={index}
-            className="w-full border-2 border-gray-300 rounded-lg py-2 text-center font-semibold hover:bg-[#f3f8ff] transition-all hover:scale-105 duration-300"
+            className="w-full border-2 border-gray-300 rounded-lg py-2 text-center font-semibold hover:bg-[#f3f8ff] transition-all hover:scale-105 duration-300 text-[#333333]"
           >
             {course}
           </button>

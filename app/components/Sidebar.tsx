@@ -32,12 +32,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           <div className="">
             <FaXmark
               onClick={toggleSidebar}
-              className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer"
+              className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-[#333333]"
             />
           </div>
         </div>
 
-        <nav className="flex flex-col space-y-4">
+        <nav className="flex flex-col space-y-4 text-[#333333]">
           <Link
             href="/"
             className="text-lg hover:text-blue-500"
@@ -91,7 +91,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           >
             <div className="flex items-center gap-2">
               <FiShoppingCart /> Cart{" "}
-              <span className="text-sm text-gray-500">
+              <span className="text-sm ">
                 {cart?.length > 0 ? cart?.length : "0"}
               </span>
             </div>

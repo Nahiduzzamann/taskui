@@ -29,7 +29,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ card }) => {
           />
           {hover && (
             <div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2  bg-[#0A2C4C] px-3 py-2 text-white hover:bg-[#263a52] transition uppercase cursor-pointer font-semibold text-[13px]"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2  bg-[#0A2C4C] px-3 py-2 text-white hover:bg-[#263a52] transition uppercase cursor-pointer font-semibold text-[10px] md:text-sm"
               onClick={() => addToCart(card)}
             >
               Add to Cart
