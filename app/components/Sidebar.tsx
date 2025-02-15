@@ -23,7 +23,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? 0 : "-100%" }}
         transition={{ type: "spring", stiffness: 80, damping: 15 }}
-        className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 pl-5 py-5 px-2 flex flex-col space-y-6 md:hidden"
+        className="fixed top-0 left-0 w-64 h-full bg-primaryBg shadow-lg z-50 pl-5 py-5 px-2 flex flex-col space-y-6 md:hidden"
       >
         <div className="flex gap-6 justify-between items-center">
           <Link href="/">
@@ -32,22 +32,22 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           <div className="">
             <FaXmark
               onClick={toggleSidebar}
-              className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-[#333333]"
+              className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-primaryText  "
             />
           </div>
         </div>
 
-        <nav className="flex flex-col space-y-4 text-[#333333]">
+        <nav className="flex flex-col space-y-4 text-primaryText  ">
           <Link
             href="/"
-            className="text-lg hover:text-blue-500"
+            className="text-lg hover:text-hoverBg"
             onClick={toggleSidebar}
           >
             Home
           </Link>
           <Link
             href="/courses"
-            className="text-lg hover:text-blue-500"
+            className="text-lg hover:text-hoverBg "
             onClick={toggleSidebar}
           >
             <div className="flex items-center gap-2">
@@ -56,37 +56,37 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/bundle-courses"
-            className="text-lg hover:text-blue-500"
+            className="text-lg hover:text-hoverBg"
             onClick={toggleSidebar}
           >
             Bundle Courses
           </Link>
           <Link
             href="/summit"
-            className="text-lg hover:text-blue-500"
+            className="text-lg hover:text-hoverBg "
             onClick={toggleSidebar}
           >
             Summit
           </Link>
           <Link
             href="/others"
-            className="text-lg hover:text-blue-500"
+            className="text-lg hover:text-hoverBg"
             onClick={toggleSidebar}
           >
             Others
           </Link>
           <Link
             href="/career-track"
-            className="text-lg hover:text-blue-500"
+            className="text-lg hover:text-hoverBg"
             onClick={toggleSidebar}
           >
-            <button className="bg-red-500 text-white rounded-md px-4 py-2">
+            <button className="bg-red-500 text-primaryBg rounded-md px-4 py-2">
               Career Track
             </button>
           </Link>
           <Link
             href="/cart"
-            className="text-lg hover:text-blue-500"
+            className="text-lg hover:text-hoverBg"
             onClick={toggleSidebar}
           >
             <div className="flex items-center gap-2">

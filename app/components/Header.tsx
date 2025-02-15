@@ -68,30 +68,28 @@ const Header = () => {
             ? { type: "spring", stiffness: 100, damping: 30 }
             : { type: "spring", stiffness: 30 }
         }
-        className="bg-[#0d2d49] z-50 w-full fixed top-0 "
+        className="bg-secondaryText z-50 w-full fixed top-0 "
       >
-        <div className="container mx-auto flex justify-between items-center px-5 h-[60px]">
+        <div className="container mx-auto flex justify-between items-center px-3 h-[60px]">
           <Link href="/">
             <Image
               src={logo}
               alt="Logo"
-              width={45}
-              height={45}
-              className="cursor-pointer"
+              className="cursor-pointer w-20 md:w-32"
             />
           </Link>
           <div className="relative border border-white mx-2 h-9">
             <input
               type="text"
               placeholder="What do you want to learn today?"
-              className="h-full bg-white pl-2 pr-10 lg:w-96 w-full text-gray-700 outline-none"
+              className="h-full bg-primaryBg pl-2 pr-10 lg:w-96 w-full text-primaryText   outline-none"
             />
-            <button className="absolute right-0 top-0 bg-[#0d2d49] h-full w-8 flex justify-center items-center hover:bg-[#1e4364] transition-colors duration-300">
-              <FaSearch className=" text-white" />
+            <button className="absolute right-0 top-0 bg-secondaryText h-full w-8 flex justify-center items-center hover:bg-hoverBg transition-colors duration-300">
+              <FaSearch className=" text-primaryBg" />
             </button>
           </div>
           <Link href="/pages/Login">
-            <button className="bg-white text-black px-4 py-1 rounded-full hover:bg-gray-200  transition-colors duration-300 font-semibold hover:underline">
+            <button className="bg-primaryBg text-primaryText  px-4 py-1 rounded-full hover:bg-hoverBg  transition-colors duration-300 font-semibold hover:underline">
               Login
             </button>
           </Link>
@@ -106,7 +104,7 @@ const Header = () => {
             ? { type: "spring", stiffness: 20 }
             : { type: "spring", stiffness: 70 }
         }
-        className={` bg-white z-50 w-full fixed top-[60px] ${
+        className={` bg-primaryBg z-50 w-full fixed top-[60px] ${
           showShadow && "shadow-md"
         }`}
       >
@@ -115,12 +113,11 @@ const Header = () => {
             <Image
               src={logo}
               alt="Logo"
-              width={55}
-              height={55}
-              className="cursor-pointer"
+           
+            className="cursor-pointer w-20 md:w-32"
             />
           </Link>
-          <Link className="md:hidden" href="/">
+          <Link className="md:hidden h-10 w-28" href="/">
             <Image src={logo1} alt="Logo" className="cursor-pointer" />
           </Link>
           <div className="flex gap-4">
@@ -129,7 +126,7 @@ const Header = () => {
                 <li key={link.name} className="relative group">
                   <Link
                     href={link.href}
-                    className="text-[#333333] font-semibold hover:text-blue-500"
+                    className="text-primaryText   font-semibold hover:text-hoverBg"
                   >
                     {link.name}
                     {link.dropdown && (
@@ -137,14 +134,14 @@ const Header = () => {
                     )}
                   </Link>
                   {link.dropdown && (
-                    <ul className="absolute -left-8 hidden group-hover:block bg-white shadow-lg rounded-md pt-4 ">
+                    <ul className="absolute -left-8 hidden group-hover:block bg-primaryBg shadow-lg rounded-md pt-4 ">
                       {link.dropdown.map((item) => (
                         <li className="w-36 hover:underline" key={item}>
                           <Link
                             href={`${link.href}/${item
                               .toLowerCase()
                               .replace(" ", "-")}`}
-                            className="block px-4 py-2 hover:bg-gray-100 text-[#333333]"
+                            className="block px-4 py-2 hover:bg-secondaryBg text-primaryText  "
                           >
                             {item}
                           </Link>
@@ -157,13 +154,13 @@ const Header = () => {
             </ul>
             <div className="md:flex items-center gap-4 hidden">
               <Link href="/pages/CareerTrack">
-                <div className="bg-[#d33] text-white px-4 py-2 rounded hover:bg-red-500 transition">
+                <div className="bg-[#d33] text-primaryBg px-4 py-2 rounded hover:bg-red-500 transition">
                   CAREER TRACK
                 </div>
               </Link>
               <Link href="/" className="relative">
-                <FiShoppingCart className="text-2xl text-gray-700 w-6 h-6" />
-                <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full px-1">
+                <FiShoppingCart className="text-2xl text-hoverBg  w-6 h-6" />
+                <span className="absolute -top-2 -right-2 bg-black text-primaryBg text-xs rounded-full px-1">
                   {cart?.length > 0 ? cart?.length : "0"}
                 </span>
               </Link>
@@ -173,14 +170,14 @@ const Header = () => {
             <div className="md:hidden">
               <FaXmark
                 onClick={toggleSidebar}
-                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-[#333333]"
+                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-primaryText  "
               />
             </div>
           ) : (
             <div className="md:hidden">
               <FaAlignRight
                 onClick={toggleSidebar}
-                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-[#333333]"
+                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-primaryText  "
               />
             </div>
           )}

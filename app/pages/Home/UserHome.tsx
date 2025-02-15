@@ -9,35 +9,35 @@ import React from "react";
 
 export default function UserHome() {
   return (
-    <div className="pt-36 md:pt-40 bg-white">
+    <div className="pt-36 md:pt-40 bg-primaryBg">
       <div>
         <Banner></Banner>
         <ExploreCourses></ExploreCourses>
         <CourseShowContainer
           cardToShow={4}
           title={dummyData.title}
-          backgroundColor="bg-[#eee]"
+          backgroundColor="bg-secondaryBg"
           cards={dummyDataUpcoming}
         />
         <CourseShowContainer
           cardToShow={8}
           title={dummyData.title}
-          backgroundColor="bg-white"
+          backgroundColor="bg-primaryBg"
           cards={dummyData}
         />
         <CourseShowContainer
           cardToShow={4}
           title={dummyData.title}
-          backgroundColor="bg-[#eee]"
+          backgroundColor="bg-secondaryBg"
           cards={dummyData}
         />
         <CourseShowContainer
           cardToShow={6}
           title={dummyData.title}
-          backgroundColor="bg-white"
+          backgroundColor="bg-primaryBg"
           cards={dummyData}
         />
-        <div className="flex flex-col items-center justify-center bg-[#eee]">
+        <div className="flex flex-col items-center justify-center bg-secondaryBg">
           <CompanySlider />
         </div>
         <ScrollToTop />

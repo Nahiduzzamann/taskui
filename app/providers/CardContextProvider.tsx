@@ -23,7 +23,6 @@ export const CardProvider: React.FC<{ children: React.ReactNode }> = ({
     const isAlreadyInCart = cart.some((item) => item.id === card.id);
   
     if (isAlreadyInCart) {
-      // Show toast message if the card is already in the cart
       toast.info('This item is already in your cart!', {
         position: "top-right",
         autoClose: 3000,
@@ -34,10 +33,18 @@ export const CardProvider: React.FC<{ children: React.ReactNode }> = ({
         progress: undefined,
       });
     } else {
-      // Add to cart if it's not already in
       const updatedCart = [...cart, card];
       setCart(updatedCart);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
+      toast.success('Item added in your cart!', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
     }
   };
 
