@@ -16,7 +16,7 @@ const links = [
   {
     name: "COURSES",
     href: "/courses",
-    dropdown: ["Course 1", "Course 22222222", "Course 3"],
+    dropdown: ["Course 1", "Course 2", "Course 3"],
   },
   { name: "BUNDLE COURSES", href: "/bundle-courses" },
   { name: "SUMMIT", href: "/summit", dropdown: ["Event 1", "Event 2"] },
@@ -68,7 +68,7 @@ const Header = () => {
             ? { type: "spring", stiffness: 100, damping: 30 }
             : { type: "spring", stiffness: 30 }
         }
-        className="bg-secondaryText z-50 w-full fixed top-0 "
+        className="bg-yellow  z-50 w-full fixed top-0 "
       >
         <div className="container mx-auto flex justify-between items-center px-3 h-[60px]">
           <Link href="/">
@@ -82,14 +82,14 @@ const Header = () => {
             <input
               type="text"
               placeholder="What do you want to learn today?"
-              className="h-full bg-primaryBg pl-2 pr-10 lg:w-96 w-full text-primaryText   outline-none"
+              className="h-full bg-lightWhite  pl-2 pr-10 lg:w-96 w-full text-darkBlack    outline-none"
             />
-            <button className="absolute right-0 top-0 bg-secondaryText h-full w-8 flex justify-center items-center hover:bg-hoverBg transition-colors duration-300">
-              <FaSearch className=" text-primaryBg" />
+            <button className="absolute right-0 top-0 bg-yellow  h-full w-8 flex justify-center items-center hover:bg-goldenYellow transition-colors duration-300">
+              <FaSearch className=" text-lightWhite " />
             </button>
           </div>
           <Link href="/pages/Login">
-            <button className="bg-primaryBg text-primaryText  px-4 py-1 rounded-full hover:bg-hoverBg  transition-colors duration-300 font-semibold hover:underline">
+            <button className="bg-lightWhite  text-darkBlack   px-4 py-1 rounded-full hover:bg-goldenYellow  transition-colors duration-300 font-semibold hover:underline">
               Login
             </button>
           </Link>
@@ -104,7 +104,7 @@ const Header = () => {
             ? { type: "spring", stiffness: 20 }
             : { type: "spring", stiffness: 70 }
         }
-        className={` bg-primaryBg z-50 w-full fixed top-[60px] ${
+        className={` bg-lightWhite  z-50 w-full fixed top-[60px] ${
           showShadow && "shadow-md"
         }`}
       >
@@ -126,7 +126,7 @@ const Header = () => {
                 <li key={link.name} className="relative group">
                   <Link
                     href={link.href}
-                    className="text-primaryText   font-semibold hover:text-hoverBg"
+                    className="text-darkBlack    font-semibold hover:text-goldenYellow"
                   >
                     {link.name}
                     {link.dropdown && (
@@ -134,14 +134,14 @@ const Header = () => {
                     )}
                   </Link>
                   {link.dropdown && (
-                    <ul className="absolute -left-8 hidden group-hover:block bg-primaryBg shadow-lg rounded-md pt-4 ">
+                    <ul className="absolute -left-8 hidden group-hover:block bg-lightWhite  shadow-lg rounded-md pt-4 ">
                       {link.dropdown.map((item) => (
                         <li className="w-36 hover:underline" key={item}>
                           <Link
                             href={`${link.href}/${item
                               .toLowerCase()
                               .replace(" ", "-")}`}
-                            className="block px-4 py-2 hover:bg-secondaryBg text-primaryText  "
+                            className="block px-4 py-2 hover:bg-lightGray  text-darkBlack   "
                           >
                             {item}
                           </Link>
@@ -154,13 +154,13 @@ const Header = () => {
             </ul>
             <div className="md:flex items-center gap-4 hidden">
               <Link href="/pages/CareerTrack">
-                <div className="bg-[#d33] text-primaryBg px-4 py-2 rounded hover:bg-red-500 transition">
+                <div className="bg-[#d33] text-lightWhite  px-4 py-2 rounded hover:bg-red-500 transition">
                   CAREER TRACK
                 </div>
               </Link>
               <Link href="/" className="relative">
-                <FiShoppingCart className="text-2xl text-hoverBg  w-6 h-6" />
-                <span className="absolute -top-2 -right-2 bg-black text-primaryBg text-xs rounded-full px-1">
+                <FiShoppingCart className="text-2xl text-goldenYellow  w-6 h-6" />
+                <span className="absolute -top-2 -right-2 bg-black text-lightWhite  text-xs rounded-full px-1">
                   {cart?.length > 0 ? cart?.length : "0"}
                 </span>
               </Link>
@@ -170,14 +170,14 @@ const Header = () => {
             <div className="md:hidden">
               <FaXmark
                 onClick={toggleSidebar}
-                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-primaryText  "
+                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-darkBlack   "
               />
             </div>
           ) : (
             <div className="md:hidden">
               <FaAlignRight
                 onClick={toggleSidebar}
-                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-primaryText  "
+                className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-darkBlack   "
               />
             </div>
           )}

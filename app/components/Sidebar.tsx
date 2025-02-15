@@ -23,7 +23,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? 0 : "-100%" }}
         transition={{ type: "spring", stiffness: 80, damping: 15 }}
-        className="fixed top-0 left-0 w-64 h-full bg-primaryBg shadow-lg z-50 pl-5 py-5 px-2 flex flex-col space-y-6 md:hidden"
+        className="fixed top-0 left-0 w-64 h-full bg-lightWhite  shadow-lg z-50 pl-5 py-5 px-2 flex flex-col space-y-6 md:hidden"
       >
         <div className="flex gap-6 justify-between items-center">
           <Link href="/">
@@ -32,22 +32,22 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           <div className="">
             <FaXmark
               onClick={toggleSidebar}
-              className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-primaryText  "
+              className="h-6 w-6 hover:scale-110 transition-transform duration-300 cursor-pointer text-darkBlack   "
             />
           </div>
         </div>
 
-        <nav className="flex flex-col space-y-4 text-primaryText  ">
+        <nav className="flex flex-col space-y-4 text-darkBlack   ">
           <Link
             href="/"
-            className="text-lg hover:text-hoverBg"
+            className="text-lg hover:text-goldenYellow"
             onClick={toggleSidebar}
           >
             Home
           </Link>
           <Link
             href="/courses"
-            className="text-lg hover:text-hoverBg "
+            className="text-lg hover:text-goldenYellow "
             onClick={toggleSidebar}
           >
             <div className="flex items-center gap-2">
@@ -56,37 +56,37 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </Link>
           <Link
             href="/bundle-courses"
-            className="text-lg hover:text-hoverBg"
+            className="text-lg hover:text-goldenYellow"
             onClick={toggleSidebar}
           >
             Bundle Courses
           </Link>
           <Link
             href="/summit"
-            className="text-lg hover:text-hoverBg "
+            className="text-lg hover:text-goldenYellow "
             onClick={toggleSidebar}
           >
             Summit
           </Link>
           <Link
             href="/others"
-            className="text-lg hover:text-hoverBg"
+            className="text-lg hover:text-goldenYellow"
             onClick={toggleSidebar}
           >
             Others
           </Link>
           <Link
             href="/career-track"
-            className="text-lg hover:text-hoverBg"
+            className="text-lg hover:text-goldenYellow"
             onClick={toggleSidebar}
           >
-            <button className="bg-red-500 text-primaryBg rounded-md px-4 py-2">
+            <button className="bg-red-500 text-lightWhite  rounded-md px-4 py-2">
               Career Track
             </button>
           </Link>
           <Link
             href="/cart"
-            className="text-lg hover:text-hoverBg"
+            className="text-lg hover:text-goldenYellow"
             onClick={toggleSidebar}
           >
             <div className="flex items-center gap-2">

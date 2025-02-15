@@ -2,11 +2,11 @@ import Image from "next/image";
 import bannerImg from "../../public/Images/banner.png";
 const Banner = () => {
   return (
-    <section className="bg-secondaryBg py-6 md:py-10 lg:py-16">
+    <section className="bg-lightGray  py-6 md:py-10 lg:py-16">
       <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-3">
         {/* Text Content */}
         <div className="md:w-1/2 mt-8 md:mt-0 flex flex-col justify-between md:h-[350px] ">
-          <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-primaryText leading-tight text-center mb-4 md:my-0">
+          <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-darkBlack  leading-tight text-center mb-4 md:my-0">
             Empowering You for a Ebstac Future
           </h1>
           <p className="mt-4 text-lg text-[#757575] font-serif text-justify">
@@ -20,7 +20,7 @@ const Banner = () => {
 
         {/* Image */}
         <div className="md:w-1/2 flex justify-center relative">
-          <div className="relative w-[280px] h-[320px] md:w-[340px] md:h-[400px] rounded-[30px] overflow-hidden border-[6px] border-secondaryText">
+          <div className="relative w-[280px] h-[320px] md:w-[340px] md:h-[400px] rounded-[30px] overflow-hidden border-[6px] border-yellow ">
             <Image
               src={bannerImg}
               alt="Ebstac Future"
@@ -29,7 +29,7 @@ const Banner = () => {
               className="rounded-[30px]"
             />
           </div>
-          <span className="absolute top-2 right-2 w-4 h-4 bg-secondaryText rounded-full"></span>
+          <span className="absolute top-2 right-2 w-4 h-4 bg-yellow  rounded-full"></span>
         </div>
       </div>
     </section>

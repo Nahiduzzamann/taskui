@@ -14,14 +14,14 @@ interface CourseShowContainerProps {
 
 const CourseShowContainer: React.FC<CourseShowContainerProps> = ({
   title,
-  backgroundColor = "bg-primaryBg",
+  backgroundColor = "bg-lightWhite ",
   cards,
   cardToShow,
 }) => {
   return (
     <div className={` ${backgroundColor}`}>
       <div className={`py-2 px-3 container mx-auto `}>
-        <h2 className="text-center md:text-left text-2xl lg:text-3xl font-semibold text-primaryText  uppercase pt-6 md:pt-10">
+        <h2 className="text-center md:text-left text-2xl lg:text-3xl font-semibold text-darkBlack   uppercase pt-6 md:pt-10">
           {title}
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4  py-6 md:py-8">
@@ -38,7 +38,7 @@ const CourseShowContainer: React.FC<CourseShowContainerProps> = ({
           <div></div>
         ) : (
           <div className="flex justify-end mt-6">
-            <div className="bg-secondaryText px-5 py-2 text-primaryBg  hover:bg-hoverBg transition uppercase cursor-pointer">
+            <div className="bg-yellow  px-5 py-2 text-lightWhite   hover:bg-goldenYellow transition uppercase cursor-pointer">
               View All
             </div>
           </div>

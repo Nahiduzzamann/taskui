@@ -22,11 +22,11 @@ const CompanySlider = () => {
   const swiperRef = useRef<SwiperType | null>(null);
   return (
     <div className="relative w-full  py-10 mb-40">
-      <h2 className="text-center text-2xl lg:text-3xl font-semibold text-primaryText  pt-6 md:pt-10">
+      <h2 className="text-center text-2xl lg:text-3xl font-semibold text-darkBlack   pt-6 md:pt-10">
         We Collaborate With Many Leading Companies
       </h2>
       <div className="container mx-auto  py-6 ">
-      <div className="relative px-10 bg-primaryBg mx-3 py-6 rounded-md">
+      <div className="relative px-10 bg-lightWhite  mx-3 py-6 rounded-md">
         {/* Left Arrow */}
         <button
           onClick={() => swiperRef.current?.slidePrev()}
@@ -53,7 +53,7 @@ const CompanySlider = () => {
         >
           {companies.map((company) => (
             <SwiperSlide key={company.id} className="flex justify-center">
-              <div className="w-32 h-24 flex items-center justify-center border rounded-lg bg-secondaryBg shadow-sm">
+              <div className="w-32 h-24 flex items-center justify-center border rounded-lg bg-lightGray  shadow-sm">
                 <Image
                   src={company.logo}
                   alt={company.name}

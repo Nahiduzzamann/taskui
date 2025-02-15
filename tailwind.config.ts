@@ -9,11 +9,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primaryText: '#1A1A19',   // Dark Black
-        secondaryText: '#F9BE08', // Yellow
-        primaryBg: '#F9F8F4',     // Light White
-        secondaryBg: '#DFDFD9',   // Light Gray
-        hoverBg: '#EFD30B',       // Golden Yellow
+        darkBlack : '#1A1A19',   // Dark Black
+        yellow : '#F9BE08',      // Yellow
+        lightWhite : '#F9F8F4',   // Light White
+        lightGray : '#DFDFD9',   // Light Gray
+        goldenYellow: '#EFD30B',       // Golden Yellow
       },
     },
   },

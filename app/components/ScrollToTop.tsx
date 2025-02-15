@@ -30,7 +30,7 @@ const ScrollToTop = () => {
         }`}
       >
         <FaArrowUp
-          className="text-primaryBg  text-4xl shadow-lg shadow-black bg-secondaryText rounded-full p-3 cursor-pointer hover:bg-hoverBg"
+          className="text-lightWhite   text-4xl shadow-lg shadow-black bg-yellow  rounded-full p-3 cursor-pointer hover:bg-goldenYellow"
           onClick={scrollToTop}
         />
       </div>

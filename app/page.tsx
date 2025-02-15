@@ -3,7 +3,7 @@ import UserHome from "./pages/Home/UserHome";
 
 
 export const metadata: Metadata = {
-  title: "UI Task",
+  title: "Ebstac Global - Committed to certification",
   description: "All are dummy data",
 };
 

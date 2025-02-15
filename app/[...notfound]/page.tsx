@@ -4,9 +4,9 @@ import { FaArrowLeft } from "react-icons/fa";
 
 const NotFoundPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-secondaryBg">
-      <h1 className="text-7xl font-bold text-primaryText">404</h1>
-      <h2 className="text-2xl font-semibold text-primaryText md:mt-4 mt-2">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-lightGray ">
+      <h1 className="text-7xl font-bold text-darkBlack ">404</h1>
+      <h2 className="text-2xl font-semibold text-darkBlack  md:mt-4 mt-2">
         Page Not Found
       </h2>
       <p className="text-gray-600 mt-2">
