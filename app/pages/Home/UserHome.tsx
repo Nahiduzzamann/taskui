@@ -9,7 +9,7 @@ import React from "react";
 
 export default function UserHome() {
   return (
-    <div className="pt-36 md:pt-40 bg-lightWhite pb-[430px] md:pb-24">
+    <div className="pt-36 md:pt-40 bg-lightWhite mb-[830px] md:pb-24">
       <div>
         <Banner></Banner>
         <ExploreCourses></ExploreCourses>

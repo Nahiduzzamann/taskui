@@ -1,24 +1,31 @@
-'use client'
-import Link from 'next/link';
-import React, { useState } from 'react';
-import { FaFacebook, FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
+"use client";
+import Link from "next/link";
+import React, { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
+    console.log("Email:", email);
+    console.log("Password:", password);
   };
 
   return (
     <div className=" flex justify-center items-center p-4">
-      <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
-        <h2 className="text-darkBlack text-3xl font-bold text-center mb-2">Sign In</h2>
-        <p className="text-darkBlack text-center mb-6">Please login to your account to continue</p>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md"
+      >
+        <h2 className="text-darkBlack text-3xl font-bold text-center mb-2">
+          Sign In
+        </h2>
+        <p className="text-darkBlack text-center mb-6">
+          Please login to your account to continue
+        </p>
         <div className="mb-4">
           <input
             type="text"
@@ -30,7 +37,7 @@ const Login = () => {
         </div>
         <div className="mb-4 relative">
           <input
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -48,9 +55,16 @@ const Login = () => {
             <input type="checkbox" className="mr-2" />
             Keep me signed in
           </label>
-          <Link href="#" className="text-yellow hover:underline">Forget Password?</Link>
+          <Link href="#" className="text-yellow hover:underline">
+            Forget Password?
+          </Link>
         </div>
-        <button type="submit" className="w-full hover:shadow bg-yellow text-white rounded-full py-2 font-bold">Sign In</button>
+        <button
+          type="submit"
+          className="w-full hover:shadow bg-yellow text-white rounded-full py-2 font-bold"
+        >
+          Sign In
+        </button>
         {/* <div className="text-center my-4 text-lightGray">or</div>
         <div className="flex justify-center gap-4 mb-6">
           <button className="bg-lightGray rounded-full p-2 flex items-center gap-2">
@@ -61,7 +75,10 @@ const Login = () => {
           </button>
         </div> */}
         <p className="text-center text-darkBlack mt-2">
-          Not a member yet? <Link href="#" className="text-yellow hover:underline">Sign Up</Link>
+          Not a member yet?{" "}
+          <Link href="#" className="text-yellow hover:underline">
+            Sign Up
+          </Link>
         </p>
       </form>
     </div>
