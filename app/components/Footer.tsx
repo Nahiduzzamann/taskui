@@ -7,10 +7,10 @@ import app from "../../public/Images/app.png";
 const Footer = () => {
   return (
     <footer className="absolute bottom-0 w-full bg-yellow pb-6">
-      <div className="container mx-auto text-lightWhite   py-6 px-2 grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+      <div className="container mx-auto text-lightWhite   py-6 px-2 grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8">
         <div>
           <div className="flex items-center mb-2 md:mb-4">
-            <Image src={logo1} alt="Cookbd Logo" className="h-12 w-24"/>
+            <Image src={logo1} alt="Cookbd Logo" className="h-12 w-24" />
             <h2 className="text-darkBlack text-2xl font-bold">Cookbd</h2>
           </div>
           <p className="text-lightWhite text-sm">
@@ -76,12 +76,14 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="md:mt-10 text-center">
-        <h3 className="text-lightWhite font-bold mb-1 md:mb-4">Get in touch</h3>
-        <div className="flex justify-center gap-4">
-          <Image src={google} alt="Google Play" className="h-10 w-36" />
-          <Image src={app} alt="App Store" className="h-12 w-36"/>
+        <div className="">
+          <h3 className="text-lightWhite font-bold mb-1 md:mb-4">
+            Get in touch
+          </h3>
+          <div className="space-y-2 mt-2">
+            <Image src={google} alt="Google Play" className="h-10 w-36" />
+            <Image src={app} alt="App Store" className="h-12 w-36" />
+          </div>
         </div>
       </div>
     </footer>
