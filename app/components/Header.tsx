@@ -11,6 +11,7 @@ import Sidebar from "./Sidebar";
 import { FiShoppingCart } from "react-icons/fi";
 import { useCardContext } from "../providers/CardContextProvider";
 import { IoIosArrowDown } from "react-icons/io";
+import { usePathname } from "next/navigation";
 const links = [
   { name: "HOME", href: "/" },
   {
@@ -29,12 +30,8 @@ const Header = () => {
   const [showShadow, setShowShadow] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
+  const pathname = usePathname();
 
-useEffect(()=>{
-  const isHidden = typeof window !== 'undefined' && window.location.pathname === '/pages/Login';
-  setIsHidden(isHidden)
-},[])
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -74,7 +71,7 @@ useEffect(()=>{
             ? { type: "spring", stiffness: 100, damping: 30 }
             : { type: "spring", stiffness: 30 }
         }
-        className={`bg-yellow  z-50 w-full ${isHidden ? '':'fixed top-0 '} `}
+        className={`bg-yellow  z-50 w-full ${pathname === "/pages/Login" ? '':'fixed top-0 '} `}
       >
         <div className="container mx-auto flex justify-between items-center px-3 h-[60px]">
           <Link href="/">
@@ -110,7 +107,7 @@ useEffect(()=>{
             ? { type: "spring", stiffness: 20 }
             : { type: "spring", stiffness: 70 }
         }
-        className={` bg-lightWhite  z-50 w-full ${isHidden ? '':'fixed top-[60px] '}  ${
+        className={` bg-lightWhite  z-50 w-full ${pathname === "/pages/Login" ? '':'fixed top-[60px] '}  ${
           showShadow && "shadow-md"
         }`}
       >

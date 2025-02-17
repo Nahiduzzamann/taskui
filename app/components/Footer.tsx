@@ -1,16 +1,28 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import logo1 from "../../public/Images/logo1.png";
 import google from "../../public/Images/google.png";
 import app from "../../public/Images/app.png";
+import { usePathname } from "next/navigation";
 const Footer = () => {
+  const pathname = usePathname();
+
   return (
-    <footer className="absolute bottom-0 w-full bg-yellow pb-6">
+    <footer
+      className={` w-full bg-yellow pb-6 ${
+        pathname === "/pages/Login" ? "" : "absolute bottom-0"
+      }`}
+    >
       <div className="container mx-auto text-lightWhite   py-6 px-2 grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8">
         <div>
           <div className="flex items-center mb-2 md:mb-4">
-            <Image src={logo1} alt="Cookbd Logo" className="h-12 w-24" />
+            <Image
+              src={logo1}
+              alt="Cookbd Logo"
+              className="h-12 lg:w-24 md:w-16 w-24"
+            />
             <h2 className="text-darkBlack text-2xl font-bold">Cookbd</h2>
           </div>
           <p className="text-lightWhite text-sm">
