@@ -29,6 +29,12 @@ const Header = () => {
   const [showShadow, setShowShadow] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+
+useEffect(()=>{
+  const isHidden = typeof window !== 'undefined' && window.location.pathname === '/pages/Login';
+  setIsHidden(isHidden)
+},[])
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -68,7 +74,7 @@ const Header = () => {
             ? { type: "spring", stiffness: 100, damping: 30 }
             : { type: "spring", stiffness: 30 }
         }
-        className="bg-yellow  z-50 w-full fixed top-0 "
+        className={`bg-yellow  z-50 w-full ${isHidden ? '':'fixed top-0 '} `}
       >
         <div className="container mx-auto flex justify-between items-center px-3 h-[60px]">
           <Link href="/">
@@ -104,7 +110,7 @@ const Header = () => {
             ? { type: "spring", stiffness: 20 }
             : { type: "spring", stiffness: 70 }
         }
-        className={` bg-lightWhite  z-50 w-full fixed top-[60px] ${
+        className={` bg-lightWhite  z-50 w-full ${isHidden ? '':'fixed top-[60px] '}  ${
           showShadow && "shadow-md"
         }`}
       >
