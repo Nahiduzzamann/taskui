@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer
       className={` w-full bg-yellow pb-6 ${
-        pathname === "/pages/Login" ? "" : "absolute bottom-0"
+        pathname === "/pages/Login" || pathname === "/pages/SignUp" ? "" : "absolute bottom-0"
       }`}
     >
       <div className="container mx-auto text-lightWhite   py-6 px-2 grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8">

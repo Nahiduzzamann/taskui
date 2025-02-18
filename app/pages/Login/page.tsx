@@ -32,7 +32,7 @@ const Login = () => {
             placeholder="E-mail Or Phone"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-yellow rounded-full px-4 py-2 focus:outline-none"
+            className="w-full border border-yellow rounded-full px-4 py-2 focus:outline-none bg-lightWhite"
           />
         </div>
         <div className="mb-4 relative">
@@ -41,7 +41,7 @@ const Login = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full border border-yellow rounded-full px-4 py-2 focus:outline-none"
+            className="w-full border border-yellow rounded-full px-4 py-2 focus:outline-none bg-lightWhite"
           />
           <div
             onClick={() => setShowPassword(!showPassword)}
@@ -52,7 +52,7 @@ const Login = () => {
         </div>
         <div className="flex justify-between items-center mb-6">
           <label className="flex items-center">
-            <input type="checkbox" className="mr-2" />
+            <input type="checkbox" className="mr-2 bg-lightWhite text-darkBlack" />
             Keep me signed in
           </label>
           <Link href="#" className="text-yellow hover:underline">
@@ -61,7 +61,7 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="w-full hover:shadow bg-yellow text-white rounded-full py-2 font-bold"
+          className="w-full hover:shadow hover:bg-goldenYellow  bg-yellow text-white rounded-full py-2 font-bold"
         >
           Sign In
         </button>
@@ -76,7 +76,7 @@ const Login = () => {
         </div> */}
         <p className="text-center text-darkBlack mt-2">
           Not a member yet?{" "}
-          <Link href="#" className="text-yellow hover:underline">
+          <Link href="/pages/SignUp" className="text-yellow hover:underline">
             Sign Up
           </Link>
         </p>

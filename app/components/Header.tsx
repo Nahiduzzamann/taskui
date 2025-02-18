@@ -71,7 +71,7 @@ const Header = () => {
             ? { type: "spring", stiffness: 100, damping: 30 }
             : { type: "spring", stiffness: 30 }
         }
-        className={`bg-yellow  z-50 w-full ${pathname === "/pages/Login" ? '':'fixed top-0 '} `}
+        className={`bg-yellow  z-50 w-full ${pathname === "/pages/Login" || pathname === "/pages/SignUp" ? '':'fixed top-0 '} `}
       >
         <div className="container mx-auto flex justify-between items-center px-3 h-[60px]">
           <Link href="/">
@@ -107,7 +107,7 @@ const Header = () => {
             ? { type: "spring", stiffness: 20 }
             : { type: "spring", stiffness: 70 }
         }
-        className={` bg-lightWhite  z-50 w-full ${pathname === "/pages/Login" ? '':'fixed top-[60px] '}  ${
+        className={` bg-lightWhite  z-50 w-full ${pathname === "/pages/Login" || pathname === "/pages/SignUp" ? '':'fixed top-[60px] '}  ${
           showShadow && "shadow-md"
         }`}
       >
