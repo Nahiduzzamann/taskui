@@ -21,9 +21,8 @@ const Footer = () => {
             <Image
               src={logo1}
               alt="Cookbd Logo"
-              className="h-12 lg:w-24 md:w-16 w-24"
+              className="h-12 md:w-24 w-24"
             />
-            <h2 className="text-darkBlack text-2xl font-bold">Cookbd</h2>
           </div>
           <p className="text-lightWhite text-sm">
             If you have any questions or concerns, please feel free to contact

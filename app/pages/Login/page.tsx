@@ -51,8 +51,8 @@ const Login = () => {
           </div>
         </div>
         <div className="flex justify-between items-center mb-6">
-          <label className="flex items-center">
-            <input type="checkbox" className="mr-2 bg-lightWhite text-darkBlack" />
+          <label className="flex items-center text-darkBlack">
+            <input type="checkbox" className="mr-2 bg-lightWhite " />
             Keep me signed in
           </label>
           <Link href="#" className="text-yellow hover:underline">
